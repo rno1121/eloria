@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     {# Theme Styles #}
-    {{ 'app.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" href="{{ 'app.css' | asset }}">
 
     {% hook 'head' %}
     {% hook 'head:end' %}
@@ -119,13 +119,13 @@
                 <p class="footer-copyright">© {{ "now"|date("Y") }} {{ store.name }}. {{ trans('pages.general.rights_reserved') }}</p>
                 <div class="footer-payments">
                     {# مدى #}
-                    <img src="{{ 'images/mada.svg' | asset_url }}" alt="مدى" width="40" loading="lazy">
+                    <img src="{{ 'images/mada.svg' | asset }}" alt="مدى" width="40" loading="lazy">
                     {# Apple Pay #}
-                    <img src="{{ 'images/apple-pay.svg' | asset_url }}" alt="Apple Pay" width="50" loading="lazy">
+                    <img src="{{ 'images/apple-pay.svg' | asset }}" alt="Apple Pay" width="50" loading="lazy">
                     {# STC Pay #}
-                    <img src="{{ 'images/stc-pay.svg' | asset_url }}" alt="STC Pay" width="45" loading="lazy">
+                    <img src="{{ 'images/stc-pay.svg' | asset }}" alt="STC Pay" width="45" loading="lazy">
                     {# تابي #}
-                    <img src="{{ 'images/tabby.svg' | asset_url }}" alt="تابي" width="45" loading="lazy">
+                    <img src="{{ 'images/tabby.svg' | asset }}" alt="تابي" width="45" loading="lazy">
                 </div>
             </div>
         </div>
@@ -145,8 +145,8 @@
     {% hook 'body:end' %}
 
     {# Scripts #}
-    {{ 'app.js' | asset_url | script_tag }}
-    {{ 'routine-tool.js' | asset_url | script_tag }}
+    <script defer src="{{ 'app.js' | asset }}"></script>
+    <script defer src="{{ 'routine-tool.js' | asset }}"></script>
 
     <script>
     // Header scroll effect
