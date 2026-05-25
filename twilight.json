@@ -236,6 +236,67 @@
             "required": false,
             "value": false,
             "selected": false
+        },
+        {
+            "type": "static",
+            "id": "eloria-divider",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "eloria-label",
+            "value": "<div class='rounded-lg' style='background-color: #0D0D0D; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #C8956C;font-size: 15px; font-weight: bold; letter-spacing: 0.1em;'>ELORIA — إيلوريا</h6></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار الشريط الثابت في الجوال",
+            "description": "يظهر سعر المنتج وزر الشراء ثابتاً أسفل الشاشة في الجوال",
+            "id": "show_sticky_bar",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "إظهار أداة روتين العناية التفاعلية",
+            "description": "استبيان 3 خطوات يُنتج روتين عناية مخصص لكل عميلة",
+            "id": "show_routine_tool",
+            "format": "switch",
+            "required": false,
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-edit",
+            "label": "عنوان الهيرو — السطر الأول",
+            "id": "hero_line1_ar",
+            "format": "text",
+            "required": false,
+            "value": "بشرتك تستحق"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-edit",
+            "label": "عنوان الهيرو — السطر المميز",
+            "id": "hero_line2_ar",
+            "format": "text",
+            "required": false,
+            "value": "الإشراق الحقيقي"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-color",
+            "label": "اللون الرئيسي (Rose Gold)",
+            "id": "eloria_primary_color",
+            "format": "color",
+            "required": false,
+            "value": "#C8956C"
         }
     ],
     "components": [
