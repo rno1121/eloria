@@ -1,7 +1,7 @@
 {% extends "layouts.master" %}
 
 {% block title %}{{ store.name }} — Eloria Brightening Body Serum{% endblock %}
-{% block description %}سيروم تفتيح الجسم بالنياسيناميد 10%، فيتامين C، وهيالورونيك أسيد. نتائج واضحة خلال 14 يوم.{% endblock %}
+{% block description %}بوستر سيروم تفتيح الجسم — أضيفيه لكريمك المفضل للحصول على نتائج واضحة خلال 14 يوم. بتركيبة Tranexamic Acid 3% وNiacinamide 4% وAlpha Arbutin 2%.{% endblock %}
 
 {% block styles %}
     {{ parent() }}
@@ -107,26 +107,13 @@
         <div class="hero-image" data-animate="fade-left">
             <div class="hero-image-glow"></div>
             <div class="hero-image-wrap">
-                {% if product and product.image %}
                 <img
-                    src="{{ product.image.url }}"
-                    alt="{{ product.image.alt | default('Eloria Brightening Body Serum') }}"
+                    src="https://cdn.salla.sa/OqVEKa/vDAnghAW8BP9uwl4pu6j7ZsQK4toy2jM6bT0MJBa.jpg"
+                    alt="Eloria Brightening Body Serum"
                     class="hero-product-img"
                     loading="eager"
                     width="480"
                     height="600">
-                {% else %}
-                <div class="hero-product-placeholder">
-                    <div class="placeholder-bottle">
-                        <div class="bottle-body">
-                            <span class="bottle-brand">ELORIA</span>
-                            <span class="bottle-name">Brightening<br>Body Serum</span>
-                            <span class="bottle-size">50ml</span>
-                        </div>
-                        <div class="bottle-dropper"></div>
-                    </div>
-                </div>
-                {% endif %}
 
                 {# شارة عائمة #}
                 <div class="floating-badge badge-top">
@@ -489,22 +476,14 @@
 
             <div class="cta-product-card">
                 <div class="cta-product-image">
-                    {% if product and product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.image.alt }}" loading="lazy" width="160" height="200">
-                    {% else %}
-                    <div class="cta-bottle-placeholder">
-                        <span>ELORIA</span>
-                        <small>Brightening<br>Body Serum</small>
-                        <em>50ml</em>
-                    </div>
-                    {% endif %}
+                    <img src="https://cdn.salla.sa/OqVEKa/vDAnghAW8BP9uwl4pu6j7ZsQK4toy2jM6bT0MJBa.jpg" alt="Eloria Brightening Body Serum" loading="lazy" width="160" height="200">
                 </div>
 
                 <div class="cta-product-info">
                     <h3 class="cta-product-name">Eloria Brightening Body Serum</h3>
                     <div class="cta-product-details">
                         <span class="detail-tag">50ml</span>
-                        <span class="detail-tag">Niacinamide 10%</span>
+                        <span class="detail-tag">Tranexamic Acid · Niacinamide · Alpha Arbutin</span>
                         <span class="detail-tag">{{ trans('pages.products.dropper') }}</span>
                     </div>
 
