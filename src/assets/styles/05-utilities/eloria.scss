@@ -1405,3 +1405,56 @@ salla-add-product-button {
   flex: 1;
   max-width: 200px;
 }
+
+// ── Eloria Header ─────────────────────────────────────────────────
+.store-header {
+  .top-navbar { display: none !important; }
+}
+
+.eloria-mainnav {
+  background: var(--black) !important;
+  padding: 0.75rem 0;
+
+  .navbar-brand img {
+    height: 48px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .salla-cart-summary,
+  salla-cart-summary i,
+  salla-user-menu {
+    color: var(--white) !important;
+    --color: var(--white);
+  }
+}
+
+// Hamburger 3 lines
+.eloria-hamburger {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  text-decoration: none;
+
+  .eloria-hamburger-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+  }
+
+  &:hover .eloria-hamburger-lines span {
+    background: var(--rose);
+  }
+}

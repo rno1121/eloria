@@ -42,13 +42,18 @@
   </div>
 
   {# Main Nav #}
-  <div id="mainnav" class="main-nav-container shadow-default bg-white flex items-center">
+  <div id="mainnav" class="eloria-mainnav shadow-default flex items-center">
       <div class="inner bg-inherit w-full">
           <div class="container">
               <div class="flex items-stretch justify-between relative">
-                  <div class="flex items-center">
-                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
-                        <i class="sicon-menu text-primary text-2xl"></i>
+                  <div class="flex items-center gap-4">
+                      {# Hamburger — always visible #}
+                      <a class="eloria-hamburger mburger mburger--collapse leading-none" href="#mobile-menu" aria-label="Open-menu">
+                          <span class="eloria-hamburger-lines">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </span>
                       </a>
                       <a class="navbar-brand" href="{{ store.url }}">
                           <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo">
@@ -58,8 +63,9 @@
                             <h2 class="sr-only">{{ store.name }}</h2>
                           {% endif %}
                       </a>
-                      <custom-main-menu></custom-main-menu>
                   </div>
+                  {# Hide desktop menu — use hamburger only #}
+                  <custom-main-menu style="display:none"></custom-main-menu>
                   <div class="flex items-center justify-end my-2.5">
                       <salla-user-menu avatar-only show-header show-trigger></salla-user-menu>
                       <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
