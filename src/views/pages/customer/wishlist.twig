@@ -1,21 +1,39 @@
 {#
-| Variable   | Type                 | Description |
-|------------|----------------------|-------------|
-| page       | object               |             |
-| page.title | string               |             |
-| page.slug  | string               |             |
+  Eloria — Customer wishlist
+  src/views/pages/customer/wishlist.twig
 #}
-{% extends "layouts.customer" %}
-{% block head_scripts %}
-	<script defer data-cfasync="false" src="{{ 'wishlist-card.js'|asset }}"></script>
+{% extends 'layouts.master' %}
+
+{% block content %}
+{% embed 'components.customer.account-layout' with { active: 'wishlist', title: trans('account.wishlist') } %}
+  {% block account_content %}
+    {% if wishlists|length %}
+      <div class="product-cards">
+        {% for product in wishlists %}
+          <article class="pcard">
+            <a class="pcard-media" href="{{ product.url }}">
+              {% if product.image.url %}<img src="{{ product.image.url }}" alt="{{ product.name }}" loading="lazy">{% else %}<div class="placeholder" data-label="PRODUCT"></div>{% endif %}
+            </a>
+            <div class="pcard-body">
+              <h3 class="pcard-name"><a href="{{ product.url }}">{{ product.name }}</a></h3>
+              <div class="pcard-foot">
+                <div class="pcard-price"><span class="price-now">{{ product.price|money }}</span></div>
+                <salla-add-product-button product-id="{{ product.id }}" product-status="{{ product.status }}" product-type="{{ product.type }}" class="pcard-add">{{ trans('listing.add') }}</salla-add-product-button>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="account-empty">
+        <p>{{ trans('account.wishlist_empty') }}</p>
+        <a class="btn btn-primary" href="{{ url('products') }}">{{ trans('nav.shop') }}</a>
+      </div>
+    {% endif %}
+  {% endblock %}
+{% endembed %}
 {% endblock %}
 
-{% block inner_content %}
-	<div class="space-y-5" id="wishlist">
-		{% hook 'customer:wishlist.items.start' %}
-		<salla-products-list source="wishlist" row-cards product-card-component="custom-wishlist-card"></salla-products-list>
-		{% hook 'customer:wishlist.items.end' %}
-	</div>
+{% block scripts %}
+  <script src="{{ asset('js/app.js') }}" defer></script>
 {% endblock %}
-
- 

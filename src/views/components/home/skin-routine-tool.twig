@@ -1,0 +1,89 @@
+{#
+  Eloria — Skin Routine Tool (مكوّن مخصّص)
+  src/views/components/home/skin-routine-tool.twig
+  أداة تفاعلية: أسئلة عن البشرة والمشكلة والوقت → روتين مخصّص
+#}
+<section class="routine" id="routine" data-routine-tool>
+  <div class="container">
+    <header class="section-head section-head-center">
+      <span class="eyebrow">{{ trans('home.routine.eyebrow') }}</span>
+      <h2 class="section-title">{{ component.title ?? trans('home.routine.title') }}</h2>
+      <p class="section-lead">{{ trans('home.routine.lead') }}</p>
+    </header>
+
+    <div class="routine-card">
+      {# شريط التقدم #}
+      <div class="routine-progress" data-routine-progress>
+        <span class="active"></span><span></span><span></span>
+      </div>
+
+      {# السؤال 1 — نوع البشرة #}
+      <div class="routine-step" data-step="0">
+        <h3 class="routine-q">{{ trans('home.routine.q1') }}</h3>
+        <div class="routine-options">
+          <button class="routine-opt" data-key="skin" data-value="oily">{{ trans('home.routine.skin_oily') }}</button>
+          <button class="routine-opt" data-key="skin" data-value="dry">{{ trans('home.routine.skin_dry') }}</button>
+          <button class="routine-opt" data-key="skin" data-value="combo">{{ trans('home.routine.skin_combo') }}</button>
+          <button class="routine-opt" data-key="skin" data-value="sensitive">{{ trans('home.routine.skin_sensitive') }}</button>
+        </div>
+      </div>
+
+      {# السؤال 2 — المشكلة #}
+      <div class="routine-step" data-step="1" hidden>
+        <h3 class="routine-q">{{ trans('home.routine.q2') }}</h3>
+        <div class="routine-options">
+          <button class="routine-opt" data-key="concern" data-value="knees">{{ trans('home.routine.c_knees') }}</button>
+          <button class="routine-opt" data-key="concern" data-value="spots">{{ trans('home.routine.c_spots') }}</button>
+          <button class="routine-opt" data-key="concern" data-value="dull">{{ trans('home.routine.c_dull') }}</button>
+          <button class="routine-opt" data-key="concern" data-value="even">{{ trans('home.routine.c_even') }}</button>
+        </div>
+      </div>
+
+      {# السؤال 3 — الوقت #}
+      <div class="routine-step" data-step="2" hidden>
+        <h3 class="routine-q">{{ trans('home.routine.q3') }}</h3>
+        <div class="routine-options">
+          <button class="routine-opt" data-key="time" data-value="am">{{ trans('home.routine.t_am') }}</button>
+          <button class="routine-opt" data-key="time" data-value="pm">{{ trans('home.routine.t_pm') }}</button>
+          <button class="routine-opt" data-key="time" data-value="both">{{ trans('home.routine.t_both') }}</button>
+        </div>
+      </div>
+
+      {# النتيجة — الروتين المخصّص #}
+      <div class="routine-result" data-routine-result hidden>
+        <span class="eyebrow">{{ trans('home.routine.result_eyebrow') }}</span>
+        <h3 class="routine-result-title" data-result-title></h3>
+        <ol class="routine-plan" data-result-plan></ol>
+        <p class="routine-drops" data-result-drops></p>
+        <div class="routine-result-actions">
+          <a class="btn btn-primary" href="{{ url('products') }}">{{ trans('home.routine.order') }}</a>
+          <button class="btn btn-ghost" data-routine-restart>{{ trans('home.routine.restart') }}</button>
+        </div>
+      </div>
+
+      <div class="routine-foot">
+        <button class="routine-back" data-routine-back hidden>{{ trans('home.routine.back') }}</button>
+      </div>
+    </div>
+
+    {# نصوص النتائج المترجمة — يقرأها routine-tool.js #}
+    <script type="application/json" data-routine-i18n>
+    {
+      "title": "{{ trans('home.routine.r_title') }}",
+      "drops": {
+        "sensitive": "{{ trans('home.routine.drops_low') }}",
+        "default": "{{ trans('home.routine.drops_mid') }}",
+        "strong": "{{ trans('home.routine.drops_high') }}"
+      },
+      "plan": {
+        "cleanse": "{{ trans('home.routine.p_cleanse') }}",
+        "mix": "{{ trans('home.routine.p_mix') }}",
+        "apply": "{{ trans('home.routine.p_apply') }}",
+        "spf": "{{ trans('home.routine.p_spf') }}",
+        "knees": "{{ trans('home.routine.p_knees') }}",
+        "night": "{{ trans('home.routine.p_night') }}"
+      }
+    }
+    </script>
+  </div>
+</section>

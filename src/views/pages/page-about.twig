@@ -1,0 +1,77 @@
+{#
+  Eloria — About us
+  src/views/pages/page-about.twig
+  صفحة "من نحن" المصمّمة. اربطيها بصفحة ثابتة في لوحة سله عبر هذا القالب،
+  أو استخدميها كصفحة مخصّصة. النصوص قابلة للتعديل من ملفات locales.
+#}
+{% extends 'layouts.master' %}
+
+{% block content %}
+<article class="about">
+
+  {# مقدّمة #}
+  <section class="about-hero">
+    <div class="container about-hero-inner">
+      <span class="eyebrow">{{ trans('about.eyebrow') }}</span>
+      <h1 class="about-headline">{{ trans('about.headline')|raw }}</h1>
+      <p class="about-intro">{{ trans('about.intro') }}</p>
+    </div>
+  </section>
+
+  {# القصة + صورة #}
+  <section class="about-story">
+    <div class="container about-story-grid">
+      <div class="about-story-media">
+        {% set aboutImg = theme.settings.get('about_image') %}
+        {% if aboutImg %}
+          <img src="{{ aboutImg }}" alt="{{ trans('about.story_title') }}">
+        {% else %}
+          <div class="placeholder" data-label="BRAND / LAB SHOT"></div>
+        {% endif %}
+      </div>
+      <div class="about-story-copy">
+        <span class="eyebrow">{{ trans('about.story_eyebrow') }}</span>
+        <h2 class="section-title">{{ trans('about.story_title') }}</h2>
+        <p>{{ trans('about.story_p1') }}</p>
+        <p>{{ trans('about.story_p2') }}</p>
+      </div>
+    </div>
+  </section>
+
+  {# القيم #}
+  <section class="about-values">
+    <div class="container">
+      <header class="section-head section-head-center">
+        <span class="eyebrow">{{ trans('about.values_eyebrow') }}</span>
+        <h2 class="section-title">{{ trans('about.values_title') }}</h2>
+      </header>
+      <div class="about-values-grid">
+        <div class="about-value"><span class="about-value-num">01</span><h3>{{ trans('about.v1_t') }}</h3><p>{{ trans('about.v1_d') }}</p></div>
+        <div class="about-value"><span class="about-value-num">02</span><h3>{{ trans('about.v2_t') }}</h3><p>{{ trans('about.v2_d') }}</p></div>
+        <div class="about-value"><span class="about-value-num">03</span><h3>{{ trans('about.v3_t') }}</h3><p>{{ trans('about.v3_d') }}</p></div>
+      </div>
+    </div>
+  </section>
+
+  {# اقتباس / فلسفة #}
+  <section class="about-quote">
+    <div class="container">
+      <p class="about-quote-text">{{ trans('about.quote')|raw }}</p>
+      <span class="about-quote-by">{{ trans('about.quote_by') }}</span>
+    </div>
+  </section>
+
+  {# دعوة #}
+  <section class="about-cta">
+    <div class="container about-cta-inner">
+      <h2 class="section-title">{{ trans('about.cta_title') }}</h2>
+      <a class="btn btn-primary" href="{{ url('products') }}">{{ trans('home.hero.cta_short') }}</a>
+    </div>
+  </section>
+
+</article>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ asset('js/app.js') }}" defer></script>
+{% endblock %}

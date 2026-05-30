@@ -1,66 +1,64 @@
-<footer class="eloria-footer">
-    <div class="eloria-footer__top">
-        <div class="container">
-            <div class="eloria-footer__grid">
-
-                {# Brand Column #}
-                <div class="eloria-footer__brand">
-                    <a href="{{ link('/') }}" class="eloria-footer__logo">
-                        <img src="{{ store.logo|cdn(160) }}" alt="{{ store.name }}" width="120" height="48">
-                    </a>
-                    <p class="eloria-footer__tagline">بوستر سيروم تفتيح الجسم — نتائج واضحة خلال ١٤ يوماً</p>
-                    <salla-social class="eloria-footer__social"></salla-social>
-                </div>
-
-                {# Quick Links #}
-                <div class="eloria-footer__col">
-                    <h4 class="eloria-footer__title">روابط سريعة</h4>
-                    <ul class="eloria-footer__links">
-                        <li><a href="{{ link('/') }}">الرئيسية</a></li>
-                        <li><a href="/lvNPPDd">اطلبي الآن</a></li>
-                        <li><a href="{{ link('/') }}#benefits">فوائد السيروم</a></li>
-                        <li><a href="{{ link('/') }}#routine">الروتين</a></li>
-                    </ul>
-                </div>
-
-                {# Contact #}
-                <div class="eloria-footer__col">
-                    <h4 class="eloria-footer__title">تواصلي معنا</h4>
-                    <ul class="eloria-footer__links">
-                        {% if store.phone %}
-                        <li><a href="tel:{{ store.phone }}">{{ store.phone }}</a></li>
-                        {% endif %}
-                        {% if store.email %}
-                        <li><a href="mailto:{{ store.email }}">{{ store.email }}</a></li>
-                        {% endif %}
-                        <li>الدعم متاح ٧ أيام</li>
-                    </ul>
-                </div>
-
-                {# Trust #}
-                <div class="eloria-footer__col">
-                    <h4 class="eloria-footer__title">ضمانات التسوق</h4>
-                    <ul class="eloria-footer__guarantees">
-                        <li>✦ شحن مجاني لجميع المناطق</li>
-                        <li>✦ إرجاع مجاني خلال ١٤ يوم</li>
-                        <li>✦ دفع آمن ومشفر</li>
-                        <li>✦ معتمد من هيئة الغذاء والدواء</li>
-                    </ul>
-                    <div class="eloria-footer__badges">
-                        <salla-trust-badges dark></salla-trust-badges>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+{#
+  Eloria — Footer
+  src/views/components/footer/footer.twig
+#}
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <span class="logo-wordmark">ELORIA</span>
+      <p class="footer-tagline">{{ trans('footer.tagline') }}</p>
     </div>
 
-    <div class="eloria-footer__bottom">
-        <div class="container">
-            <div class="eloria-footer__bottom-inner">
-                <span>© {{ "now"|date("Y") }} Eloria — جميع الحقوق محفوظة</span>
-                <salla-payments></salla-payments>
-            </div>
-        </div>
+    <div class="footer-col">
+      <h4>{{ trans('footer.shop') }}</h4>
+      <a href="{{ url('products') }}">{{ trans('nav.shop') }}</a>
+      <a href="#how-to-use">{{ trans('nav.how') }}</a>
+      <a href="#ingredients">{{ trans('footer.ingredients') }}</a>
+      <a href="#routine">{{ trans('nav.routine') }}</a>
     </div>
+
+    <div class="footer-col">
+      <h4>{{ trans('footer.help') }}</h4>
+      <a href="{{ url('blog') }}">{{ trans('nav.journal') }}</a>
+      <a href="{{ url('customer.orders') }}">{{ trans('footer.orders') }}</a>
+      {% for page in store.pages %}
+        <a href="{{ page.url }}">{{ page.title }}</a>
+      {% endfor %}
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h4>{{ trans('footer.contact') }}</h4>
+      {% if store.contacts.mobile %}<a href="tel:{{ store.contacts.mobile }}" dir="ltr">{{ store.contacts.mobile }}</a>{% endif %}
+      {% if store.contacts.email %}<a href="mailto:{{ store.contacts.email }}">{{ store.contacts.email }}</a>{% endif %}
+      <p class="footer-note">{{ trans('footer.made') }}</p>
+    </div>
+  </div>
+
+  <div class="footer-social-wrap">
+    <div class="footer-social">
+      {% if store.social.instagram %}<a href="{{ store.social.instagram }}" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>{% endif %}
+      {% if store.social.tiktok %}<a href="{{ store.social.tiktok }}" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2 1.5 3.4 3.5 3.6v2.5c-1.3 0-2.5-.4-3.5-1.1v6a5.5 5.5 0 1 1-5.5-5.5l.8.05v2.5a3 3 0 1 0 2.1 2.9V3h2.6z"/></svg></a>{% endif %}
+      {% if store.social.whatsapp %}<a href="https://wa.me/{{ store.social.whatsapp }}" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 1.9a8.1 8.1 0 0 1 6.7 12.6l-.3.4.8 2.6-2.7-.8-.4.2A8.1 8.1 0 1 1 12 3.9zM8.9 7.6c-.2 0-.5.05-.7.4-.3.4-.9 1-.9 2.3s.9 2.7 1.1 2.9c.2.2 1.9 2.9 4.6 4 .7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3l-1.5-.7c-.2-.1-.4-.1-.5.1l-.6.8c-.1.1-.3.2-.5.1-.6-.3-1.5-.6-2.3-1.4-.6-.6-1-1.3-1.2-1.5-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4z"/></svg></a>{% endif %}
+    </div>
+  </div>
+
+  <div class="footer-trust">
+    <div class="container">
+      {# توثيقات سله (معروف، المركز السعودي للأعمال) + طرق الدفع — تظهر تلقائياً من إعدادات المتجر #}
+      {% hook 'footer:payment' %}
+      {% if store.payments %}
+        <div class="trust-badges">
+          {% for pay in store.payments %}<img src="{{ pay.logo ?? pay }}" alt="" loading="lazy">{% endfor %}
+        </div>
+      {% endif %}
+      <salla-trustseal></salla-trustseal>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div class="container">
+      <p>&copy; {{ "now"|date("Y") }} {{ store.name }}. {{ trans('footer.rights') }}</p>
+      <salla-localization-modal></salla-localization-modal>
+    </div>
+  </div>
 </footer>

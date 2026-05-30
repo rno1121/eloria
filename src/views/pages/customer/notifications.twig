@@ -1,23 +1,31 @@
 {#
-| Variable                  | Type                      | Description |
-|---------------------------|---------------------------|-------------|
-| page                      | object                    |             |
-| page.title                | string                    |             |
-| page.slug                 | string                    |             |
-| notifications             | Notification[] *Paginator |             |
-| notifications.next_page   | ?string                   |             |
-| notifications.count       | int                       |             |
-| notifications[].is_new    | Bool                      |             |
-| notifications[].url       | string                    |             |
-| notifications[].sub_title | string                    |             |
-| notifications[].title     | string                    |             |
-| notifications[].date      | string                    |             |
+  Eloria — Customer notifications
+  src/views/pages/customer/notifications.twig
 #}
-{% extends "layouts.customer" %}
-{% block inner_content %}
-	{% hook 'customer:notifications.items.start' %}
+{% extends 'layouts.master' %}
 
-	<salla-notifications></salla-notifications>
+{% block content %}
+{% embed 'components.customer.account-layout' with { active: 'notifications', title: trans('account.notifications') } %}
+  {% block account_content %}
+    {% if notifications|length %}
+      <ul class="notif-list">
+        {% for note in notifications %}
+          <li class="notif-item {{ note.is_read ? '' : 'is-unread' }}">
+            <div class="notif-body">
+              <strong>{{ note.title }}</strong>
+              <p>{{ note.message }}</p>
+            </div>
+            <time>{{ note.created_at|date('Y/m/d') }}</time>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="account-empty"><p>{{ trans('account.notifications_empty') }}</p></div>
+    {% endif %}
+  {% endblock %}
+{% endembed %}
+{% endblock %}
 
-	{% hook 'customer:notifications.items.end' %}
+{% block scripts %}
+  <script src="{{ asset('js/app.js') }}" defer></script>
 {% endblock %}

@@ -1,21 +1,45 @@
 {#
-| Variable          | Type                 | Description |
-|-------------------|----------------------|-------------|
-| page              | object               |             |
-| page.title        | string               |             |
-| page.slug         | string               |             |
-| orders[]          | Orders[] *Collection |             |
+  Eloria — Customer orders list
+  src/views/pages/customer/orders/index.twig
 #}
-{% extends "layouts.customer" %}
-{% block inner_content %}
+{% extends 'layouts.master' %}
+
+{% block content %}
+{% embed 'components.customer.account-layout' with { active: 'orders', title: trans('account.orders') } %}
+  {% block account_content %}
     {% if orders|length %}
-        {% hook 'customer:orders.index.items.start' %}
-          <salla-orders></salla-orders>
-        {% hook 'customer:orders.index.items.end' %}
+      <ul class="order-list">
+        {% for order in orders %}
+          <li class="order-row">
+            <div class="order-col">
+              <span class="order-label">{{ trans('thankyou.order_no') }}</span>
+              <strong>#{{ order.id }}</strong>
+            </div>
+            <div class="order-col">
+              <span class="order-label">{{ trans('account.date') }}</span>
+              <span>{{ order.date.date|date('Y/m/d') }}</span>
+            </div>
+            <div class="order-col">
+              <span class="order-label">{{ trans('thankyou.total') }}</span>
+              <span>{{ order.amounts.total|money }}</span>
+            </div>
+            <div class="order-col">
+              <span class="order-status order-status--{{ order.status.slug }}">{{ order.status.name }}</span>
+            </div>
+            <a class="order-view" href="{{ url('customer.order.single', { id: order.id }) }}">{{ trans('account.view') }}</a>
+          </li>
+        {% endfor %}
+      </ul>
     {% else %}
-        <div class="no-content-placeholder">
-            <i class="sicon-packed-box icon"></i>
-            <p>{{ trans('pages.orders.non_orders') }}</p>
-        </div>
+      <div class="account-empty">
+        <p>{{ trans('account.orders_empty') }}</p>
+        <a class="btn btn-primary" href="{{ url('products') }}">{{ trans('nav.shop') }}</a>
+      </div>
     {% endif %}
+  {% endblock %}
+{% endembed %}
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ asset('js/app.js') }}" defer></script>
 {% endblock %}

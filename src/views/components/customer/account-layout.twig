@@ -1,0 +1,32 @@
+{#
+  Eloria — Customer account layout
+  src/views/components/customer/account-layout.twig
+  قالب مشترك لصفحات الحساب: عنوان + قائمة جانبية + المحتوى.
+  الاستخدام:
+    {% embed 'components.customer.account-layout' with { active: 'profile', title: '...' } %}
+      {% block account_content %} ... {% endblock %}
+    {% endembed %}
+#}
+<section class="account">
+  <div class="container">
+    <header class="page-hero">
+      <span class="eyebrow">{{ trans('account.eyebrow') }}</span>
+      <h1 class="section-title">{{ title }}</h1>
+    </header>
+
+    <div class="account-grid">
+      <aside class="account-nav">
+        <a href="{{ url('customer.profile') }}" class="{{ active == 'profile' ? 'is-active' : '' }}">{{ trans('account.profile') }}</a>
+        <a href="{{ url('customer.orders') }}" class="{{ active == 'orders' ? 'is-active' : '' }}">{{ trans('account.orders') }}</a>
+        <a href="{{ url('customer.wishlist') }}" class="{{ active == 'wishlist' ? 'is-active' : '' }}">{{ trans('account.wishlist') }}</a>
+        <a href="{{ url('customer.notifications') }}" class="{{ active == 'notifications' ? 'is-active' : '' }}">{{ trans('account.notifications') }}</a>
+        <a href="{{ url('customer.loyalty') }}" class="{{ active == 'loyalty' ? 'is-active' : '' }}">{{ trans('account.loyalty') }}</a>
+        <a href="{{ url('logout') }}" class="account-logout">{{ trans('account.logout') }}</a>
+      </aside>
+
+      <div class="account-content">
+        {% block account_content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,546 +1,268 @@
-{% extends "layouts.master" %}
-
-{% block title %}{{ store.name }} — Eloria Brightening Body Serum{% endblock %}
-{% block description %}بوستر سيروم تفتيح الجسم — أضيفيه لكريمك المفضل للحصول على نتائج واضحة خلال 14 يوم. بتركيبة Tranexamic Acid 3% وNiacinamide 4% وAlpha Arbutin 2%.{% endblock %}
-
-{% block styles %}
-    {{ parent() }}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --eloria-black:      #0D0D0D;
-            --eloria-white:      #FAF8F5;
-            --eloria-rose:       #C8956C;
-            --eloria-rose-light: #E8C4A8;
-            --eloria-rose-pale:  #F5EDE4;
-            --eloria-gray:       #6B6560;
-            --eloria-border:     rgba(200,149,108,0.25);
-            --font-serif:        'Cormorant Garamond', Georgia, serif;
-            --font-sans:         'Tajawal', system-ui, sans-serif;
-        }
-        body { background: var(--eloria-white); }
-    </style>
-{% endblock %}
-
-{% block scripts %}
-    {{ parent() }}
-    <script defer src="{{ 'routine-tool.js' | asset }}"></script>
-{% endblock %}
+{#
+  Eloria — Homepage
+  src/views/pages/index.twig
+#}
+{% extends 'layouts.master' %}
 
 {% block content %}
 
-{# ================================================================
-   HERO SECTION
-================================================================ #}
-<section class="hero" id="hero" aria-label="القسم الرئيسي">
-    <div class="hero-inner container">
-
-        {# نص اليسار #}
-        <div class="hero-content" data-animate="fade-up">
-            <span class="hero-badge">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M4 6l1.5 1.5L8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                {{ trans('pages.products.fda_approved') }}
-            </span>
-
-            <h1 class="hero-title">
-                <span class="hero-title-line">{{ trans('pages.products.hero_line1') }}</span>
-                <em class="hero-title-accent">{{ trans('pages.products.hero_line2') }}</em>
-                <span class="hero-title-line">{{ trans('pages.products.hero_line3') }}</span>
-            </h1>
-
-            <p class="hero-description">
-                {{ trans('pages.products.hero_desc') }}
-            </p>
-
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">14</span>
-                    <span class="stat-label">{{ trans('pages.products.days') }}</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-number">2-5</span>
-                    <span class="stat-label">{{ trans('pages.products.niacinamide') }}</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-number">+5K</span>
-                    <span class="stat-label">{{ trans('pages.products.customers') }}</span>
-                </div>
-            </div>
-
-            <div class="hero-actions">
-                {% if product %}
-                <salla-add-product-button
-                    product-id="{{ product.id }}"
-                    product-status="{{ product.status }}"
-                    product-type="{{ product.type }}"
-                    class="btn btn-primary btn-lg">
-                </salla-add-product-button>
-                {% else %}
-                <a href="/lvNPPDd" class="btn btn-primary btn-lg">
-                    {{ trans('pages.products.order_now') }}
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                {% endif %}
-                <div class="hero-price-tag">
-                    <span class="price-amount">149</span>
-                    <span class="price-currency">{{ trans('pages.general.sar') }}</span>
-                    <span class="price-size">· 50ml</span>
-                </div>
-            </div>
-
-            <div class="hero-trust">
-                <div class="trust-avatars">
-                    <div class="avatar">ر</div>
-                    <div class="avatar">س</div>
-                    <div class="avatar">ن</div>
-                    <div class="avatar">م</div>
-                </div>
-                <p class="trust-text">{{ trans('pages.products.trusted_by') }}</p>
-            </div>
+  {# ===== 1. HERO — صورة المنتج كبيرة ===== #}
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">{{ trans('home.hero.eyebrow') }}</span>
+        <h1 class="hero-title">{{ trans('home.hero.title') }}</h1>
+        <div class="hero-cert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.3 2.3 4.7-5"/></svg>
+          <span>{{ trans('home.badges.sfda') }}</span>
         </div>
-
-        {# صورة اليمين #}
-        <div class="hero-image" data-animate="fade-left">
-            <div class="hero-image-glow"></div>
-            <div class="hero-image-wrap">
-                <img
-                    src="https://cdn.salla.sa/OqVEKa/vDAnghAW8BP9uwl4pu6j7ZsQK4toy2jM6bT0MJBa.jpg"
-                    alt="Eloria Brightening Body Serum"
-                    class="hero-product-img"
-                    loading="eager"
-                    width="480"
-                    height="600">
-
-                {# شارة عائمة #}
-                <div class="floating-badge badge-top">
-                    <span class="badge-icon">✦</span>
-                    <span>{{ trans('pages.products.results_in') }}</span>
-                </div>
-                <div class="floating-badge badge-bottom">
-                    <span class="badge-icon">◈</span>
-                    <span>{{ trans('pages.products.derma_tested') }}</span>
-                </div>
-            </div>
+        <p class="hero-sub">{{ trans('home.hero.sub') }}</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#order">{{ trans('home.hero.cta_shop') }}</a>
+          <a class="btn btn-ghost" href="#routine">{{ trans('home.hero.cta2') }}</a>
         </div>
+        <ul class="hero-badges">
+          <li>{{ trans('home.badges.cortisone') }}</li>
+          <li>{{ trans('home.badges.fragrance') }}</li>
+          <li>{{ trans('home.badges.alcohol') }}</li>
+          <li>{{ trans('home.badges.sensitive') }}</li>
+        </ul>
+      </div>
 
+      <div class="hero-visual">
+        {% set featured = store.products.featured|first %}
+        {% set heroImg = theme.settings.get('hero_image') ?? featured.image.url %}
+        <div class="hero-product">
+          {% if heroImg %}
+            <img src="{{ heroImg }}" alt="{{ trans('home.hero.title') }}">
+          {% else %}
+            <div class="placeholder placeholder-bottle" data-label="HERO IMAGE"></div>
+          {% endif %}
+        </div>
+        <span class="hero-price-tag">
+          {% if featured.on_sale %}
+            {% set hd = ((featured.regular_price - featured.sale_price) / featured.regular_price * 100)|round %}
+            <span class="hpt-off">{{ trans('product.save') }} {{ hd }}%</span>
+            <span class="hpt-was">{{ featured.regular_price|money }}</span>
+            <span class="hpt-now">{{ featured.sale_price|money }}</span>
+          {% else %}
+            <span class="hpt-now">149 <small>{{ trans('common.sar') }}</small></span>
+          {% endif %}
+        </span>
+      </div>
     </div>
+  </section>
 
-    {# زخرفة خلفية #}
-    <div class="hero-bg-ornament" aria-hidden="true">
-        <div class="ornament-circle ornament-1"></div>
-        <div class="ornament-circle ornament-2"></div>
-    </div>
-</section>
-
-{# ================================================================
-   INFO BAR
-================================================================ #}
-<section class="info-bar" aria-label="مزايا الشحن والضمان">
-    <div class="info-bar-inner container">
-        <div class="info-item">
-            <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12l-2 0 9-9 9 9-2 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <div>
-                <strong>{{ trans('pages.products.free_shipping') }}</strong>
-                <span>{{ trans('pages.products.free_shipping_desc') }}</span>
-            </div>
-        </div>
-        <div class="info-divider"></div>
-        <div class="info-item">
-            <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 14l-4-4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10h11a4 4 0 010 8h-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <div>
-                <strong>{{ trans('pages.products.free_return') }}</strong>
-                <span>{{ trans('pages.products.free_return_desc') }}</span>
-            </div>
-        </div>
-        <div class="info-divider"></div>
-        <div class="info-item">
-            <svg class="info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6.5L22 9.3l-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8L2 9.3l7-0.8L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            <div>
-                <strong>{{ trans('pages.products.fda_certified') }}</strong>
-                <span>{{ trans('pages.products.fda_certified_desc') }}</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-{# ================================================================
-   BENEFITS SECTION
-================================================================ #}
-<section class="benefits" id="benefits" aria-label="فوائد المنتج">
+  {# ===== 2. المفهوم الأساسي — أضيفيه لكريمك ===== #}
+  <section class="concept">
     <div class="container">
-
-        <div class="section-header" data-animate="fade-up">
-            <span class="section-label">{{ trans('pages.products.benefits_label') }}</span>
-            <h2 class="section-title">{{ trans('pages.products.benefits_title') }}</h2>
-            <p class="section-desc">{{ trans('pages.products.benefits_desc') }}</p>
-        </div>
-
-        <div class="benefits-grid">
-
-            <div class="benefit-card" data-animate="fade-up" data-delay="0">
-                <span class="benefit-number">01</span>
-                <div class="benefit-icon-wrap">
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="var(--rose)" stroke-width="1.5"/><path d="M9 14c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5" stroke="var(--rose)" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </div>
-                <h3 class="benefit-title">{{ trans('pages.products.benefit1_title') }}</h3>
-                <p class="benefit-desc">{{ trans('pages.products.benefit1_desc') }}</p>
-                <div class="benefit-ingredient">
-                    <span>{{ trans('pages.products.powered_by') }}</span>
-                    <strong>Tranexamic Acid 3% · Niacinamide 4%</strong>
-                </div>
-            </div>
-
-            <div class="benefit-card benefit-card--featured" data-animate="fade-up" data-delay="100">
-                <span class="benefit-number">02</span>
-                <div class="benefit-icon-wrap">
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l2.5 5.5 6 .8-4.4 4.2 1 6-5.1-2.7-5.1 2.7 1-6L5.5 10.3l6-.8L14 4z" stroke="var(--rose)" stroke-width="1.5" stroke-linejoin="round"/></svg>
-                </div>
-                <h3 class="benefit-title">{{ trans('pages.products.benefit2_title') }}</h3>
-                <p class="benefit-desc">{{ trans('pages.products.benefit2_desc') }}</p>
-                <div class="benefit-ingredient">
-                    <span>{{ trans('pages.products.powered_by') }}</span>
-                    <strong>Alpha Arbutin 2%</strong>
-                </div>
-            </div>
-
-            <div class="benefit-card" data-animate="fade-up" data-delay="200">
-                <span class="benefit-number">03</span>
-                <div class="benefit-icon-wrap">
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 6c0 0-6 5-6 11a6 6 0 0012 0c0-6-6-11-6-11z" stroke="var(--rose)" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 16v-4" stroke="var(--rose)" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </div>
-                <h3 class="benefit-title">{{ trans('pages.products.benefit3_title') }}</h3>
-                <p class="benefit-desc">{{ trans('pages.products.benefit3_desc') }}</p>
-                <div class="benefit-ingredient">
-                    <span>{{ trans('pages.products.powered_by') }}</span>
-                    <strong>Booster Serum · مائي الملمس</strong>
-                </div>
-            </div>
-
-        </div>
-
-        {# شريط المكونات #}
-        <div class="ingredients-strip" data-animate="fade-up">
-            <span class="ingredients-label">{{ trans('pages.products.key_ingredients') }}:</span>
-            <div class="ingredients-list">
-                <span class="ingredient-tag">Tranexamic Acid 3%</span>
-                <span class="ingredient-dot">·</span>
-                <span class="ingredient-tag">Niacinamide 4%</span>
-                <span class="ingredient-dot">·</span>
-                <span class="ingredient-tag">Alpha Arbutin 2%</span>
-                <span class="ingredient-dot">·</span>
-                <span class="ingredient-tag">Hyaluronic Acid</span>
-                <span class="ingredient-dot">·</span>
-                <span class="ingredient-tag">Panthenol</span>
-            </div>
-        </div>
-
+      <div class="concept-box">
+        <p class="concept-line">{{ trans('home.concept.headline')|raw }}</p>
+        <p class="concept-sub">{{ trans('home.concept.sub') }}</p>
+      </div>
     </div>
-</section>
+  </section>
 
-{# ================================================================
-   ROUTINE TOOL (أداة جدول العناية)
-================================================================ #}
-<section class="routine-section" id="routine" aria-label="أداة جدول العناية">
+  {# ===== 4. المكونات الفعّالة ===== #}
+  <section class="ingredients" id="ingredients">
+    <div class="container ingredients-grid">
+      <div class="ingredients-intro">
+        <span class="eyebrow">{{ trans('home.ing.eyebrow') }}</span>
+        <h2 class="section-title">{{ trans('home.ing.title') }}</h2>
+        <p>{{ trans('home.ing.desc') }}</p>
+        <p class="ph-meta">pH 5–6 · 50ml</p>
+        <button class="ing-toggle" data-ing-toggle aria-expanded="false">
+          <span>{{ trans('footer.ingredients') }}</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+      </div>
+      <ul class="ingredient-list">
+        <li><span class="ing-pct">01</span><div><strong>Tranexamic Acid</strong><em>{{ trans('home.ing.tranexamic') }}</em></div></li>
+        <li><span class="ing-pct">02</span><div><strong>Niacinamide</strong><em>{{ trans('home.ing.niacinamide') }}</em></div></li>
+        <li><span class="ing-pct">03</span><div><strong>Alpha Arbutin</strong><em>{{ trans('home.ing.arbutin') }}</em></div></li>
+        <li><span class="ing-pct">04</span><div><strong>Panthenol</strong><em>{{ trans('home.ing.panthenol') }}</em></div></li>
+        <li><span class="ing-pct">05</span><div><strong>Hyaluronic Acid</strong><em>{{ trans('home.ing.ha') }}</em></div></li>
+        <li><span class="ing-pct">06</span><div><strong>Glycerin</strong><em>{{ trans('home.ing.glycerin') }}</em></div></li>
+      </ul>
+    </div>
+  </section>
+
+  {# ===== 5. الفوائد — كاروسيل تلقائي ===== #}
+  <section class="benefits">
     <div class="container">
-
-        <div class="section-header section-header--light" data-animate="fade-up">
-            <span class="section-label">{{ trans('pages.products.routine_label') }}</span>
-            <h2 class="section-title">{{ trans('pages.products.routine_title') }}</h2>
-            <p class="section-desc">{{ trans('pages.products.routine_desc') }}</p>
+      <div class="benefits-carousel" data-benefits>
+        <div class="benefits-track" data-benefits-track>
+          <article class="benefit-card">
+            <span class="benefit-num">01</span>
+            <span class="benefit-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c.6 4.5 3.9 7.8 8.4 8.4-4.5.6-7.8 3.9-8.4 8.4-.6-4.5-3.9-7.8-8.4-8.4C8.1 10.8 11.4 7.5 12 3z"/></svg></span>
+            <h3>{{ trans('home.ben.b2_t') }}</h3>
+            <p>{{ trans('home.ben.b2_d') }}</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-num">02</span>
+            <span class="benefit-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <h3>{{ trans('home.ben.b1_t') }}</h3>
+            <p>{{ trans('home.ben.b1_d') }}</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-num">03</span>
+            <span class="benefit-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.5c3.4 4.3 5.8 7.3 5.8 10.2a5.8 5.8 0 1 1-11.6 0C6.2 10.8 8.6 7.8 12 3.5z"/></svg></span>
+            <h3>{{ trans('home.ben.b3_t') }}</h3>
+            <p>{{ trans('home.ben.b3_d') }}</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-num">04</span>
+            <span class="benefit-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 19c0-7.7 6.3-14 14-14 0 7.7-6.3 14-14 14z"/></svg></span>
+            <h3>{{ trans('home.ben.b4_t') }}</h3>
+            <p>{{ trans('home.ben.b4_d') }}</p>
+          </article>
         </div>
-
-        <div class="routine-tool" id="routineTool" data-animate="fade-up">
-
-            {# شريط التقدم #}
-            <div class="routine-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3">
-                <div class="progress-step active" data-step="1">
-                    <span class="step-num">1</span>
-                    <span class="step-label">{{ trans('pages.products.step_skin') }}</span>
-                </div>
-                <div class="progress-line"></div>
-                <div class="progress-step" data-step="2">
-                    <span class="step-num">2</span>
-                    <span class="step-label">{{ trans('pages.products.step_concern') }}</span>
-                </div>
-                <div class="progress-line"></div>
-                <div class="progress-step" data-step="3">
-                    <span class="step-num">3</span>
-                    <span class="step-label">{{ trans('pages.products.step_time') }}</span>
-                </div>
-            </div>
-
-            {# السؤال 1: نوع البشرة #}
-            <div class="routine-question active" data-question="1">
-                <h3 class="question-title">{{ trans('pages.products.q1_title') }}</h3>
-                <div class="question-options">
-                    <button class="option-btn" data-value="oily">
-                        <span class="option-icon">💧</span>
-                        <span>{{ trans('pages.products.skin_oily') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="dry">
-                        <span class="option-icon">🌿</span>
-                        <span>{{ trans('pages.products.skin_dry') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="combination">
-                        <span class="option-icon">☯️</span>
-                        <span>{{ trans('pages.products.skin_combination') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="sensitive">
-                        <span class="option-icon">🌸</span>
-                        <span>{{ trans('pages.products.skin_sensitive') }}</span>
-                    </button>
-                </div>
-            </div>
-
-            {# السؤال 2: المشكلة الرئيسية #}
-            <div class="routine-question" data-question="2">
-                <h3 class="question-title">{{ trans('pages.products.q2_title') }}</h3>
-                <div class="question-options">
-                    <button class="option-btn" data-value="dark_spots">
-                        <span class="option-icon">🔘</span>
-                        <span>{{ trans('pages.products.concern_spots') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="dullness">
-                        <span class="option-icon">✨</span>
-                        <span>{{ trans('pages.products.concern_dull') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="dryness">
-                        <span class="option-icon">💦</span>
-                        <span>{{ trans('pages.products.concern_dry') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="uneven">
-                        <span class="option-icon">🎨</span>
-                        <span>{{ trans('pages.products.concern_uneven') }}</span>
-                    </button>
-                </div>
-            </div>
-
-            {# السؤال 3: وقت الروتين #}
-            <div class="routine-question" data-question="3">
-                <h3 class="question-title">{{ trans('pages.products.q3_title') }}</h3>
-                <div class="question-options question-options--2col">
-                    <button class="option-btn" data-value="morning">
-                        <span class="option-icon">🌅</span>
-                        <span>{{ trans('pages.products.time_morning') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="night">
-                        <span class="option-icon">🌙</span>
-                        <span>{{ trans('pages.products.time_night') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="both">
-                        <span class="option-icon">🔄</span>
-                        <span>{{ trans('pages.products.time_both') }}</span>
-                    </button>
-                    <button class="option-btn" data-value="flexible">
-                        <span class="option-icon">⏰</span>
-                        <span>{{ trans('pages.products.time_flexible') }}</span>
-                    </button>
-                </div>
-            </div>
-
-            {# النتيجة #}
-            <div class="routine-result" data-question="result" aria-live="polite">
-                <div class="result-header">
-                    <span class="result-icon">✦</span>
-                    <h3 class="result-title">{{ trans('pages.products.result_title') }}</h3>
-                </div>
-                <div class="result-routine" id="routineOutput"></div>
-                <div class="result-actions">
-                    <button class="btn btn-outline routine-restart">{{ trans('pages.products.restart') }}</button>
-                    {% if product %}
-                    <salla-add-product-button
-                        product-id="{{ product.id }}"
-                        product-status="{{ product.status }}"
-                        product-type="{{ product.type }}"
-                        class="btn btn-primary">
-                    </salla-add-product-button>
-                    {% else %}
-                    <a href="/lvNPPDd" class="btn btn-primary">{{ trans('pages.products.order_now') }}</a>
-                    {% endif %}
-                </div>
-            </div>
-
-        </div>
+      </div>
+      <div class="benefits-dots" data-benefits-dots></div>
     </div>
-</section>
+  </section>
+{# === END BENEFITS === #}
 
-{# ================================================================
-   TESTIMONIALS
-================================================================ #}
-<section class="testimonials" id="testimonials" aria-label="آراء العملاء">
+  {# ===== 6. أداة جدول العناية التفاعلية ===== #}
+  {% include 'components.home.skin-routine-tool' %}
+
+  {# ===== 8. دعوة الشراء النهائية ===== #}
+  <section class="final-cta" id="order">
+    <div class="container final-cta-inner">
+      <div class="final-visual">
+        {% set fp = store.products.featured|first %}
+        {% set ctaImg = theme.settings.get('cta_image') ?? fp.image.url %}
+        {% if ctaImg %}
+          <img src="{{ ctaImg }}" alt="{{ trans('home.final.title') }}">
+        {% else %}
+          <div class="placeholder placeholder-bottle" data-label="CTA IMAGE"></div>
+        {% endif %}
+      </div>
+      <div class="final-copy">
+        <h2 class="section-title">{{ trans('home.final.title') }}</h2>
+        <p>{{ trans('home.final.desc') }}</p>
+        <div class="final-price">
+          {% if fp.on_sale %}
+            {% set fd = ((fp.regular_price - fp.sale_price) / fp.regular_price * 100)|round %}
+            <span>{{ fp.sale_price|money }}</span>
+            <span class="price-was">{{ fp.regular_price|money }}</span>
+            <span class="price-badge">{{ trans('product.save') }} {{ fd }}%</span>
+            <small>50ml</small>
+          {% else %}
+            <span>149 {{ trans('common.sar') }}</span><small>50ml</small>
+          {% endif %}
+        </div>
+        {% if fp.id %}
+          <salla-add-product-button
+            product-id="{{ fp.id }}"
+            product-status="{{ fp.status }}"
+            product-type="{{ fp.type }}"
+            class="btn btn-primary btn-block">
+            {{ trans('home.hero.cta') }}
+          </salla-add-product-button>
+        {% else %}
+          <a class="btn btn-primary btn-block" href="{{ url('products') }}">{{ trans('home.hero.cta') }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {# ===== طريقة الاستخدام — 4 خطوات (قبل التقييمات) ===== #}
+  <section class="how" id="how-to-use">
     <div class="container">
-
-        <div class="section-header" data-animate="fade-up">
-            <span class="section-label">{{ trans('pages.products.reviews_label') }}</span>
-            <h2 class="section-title">{{ trans('pages.products.reviews_title') }}</h2>
-            <div class="section-rating">
-                <div class="stars" aria-label="تقييم 5 من 5">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--rose)"><path d="M8 1l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.4 4.4 12.3l.7-4.1-3-2.9 4.1-.6L8 1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--rose)"><path d="M8 1l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.4 4.4 12.3l.7-4.1-3-2.9 4.1-.6L8 1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--rose)"><path d="M8 1l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.4 4.4 12.3l.7-4.1-3-2.9 4.1-.6L8 1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--rose)"><path d="M8 1l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.4 4.4 12.3l.7-4.1-3-2.9 4.1-.6L8 1z"/></svg>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--rose)"><path d="M8 1l1.8 3.7 4.1.6-3 2.9.7 4.1L8 10.4 4.4 12.3l.7-4.1-3-2.9 4.1-.6L8 1z"/></svg>
-                </div>
-                <span class="rating-text">4.9 · +200 {{ trans('pages.products.review_count') }}</span>
-            </div>
-        </div>
-
-        <div class="testimonials-grid">
-
-            <div class="testimonial-card" data-animate="fade-up" data-delay="0">
-                <div class="testimonial-stars" aria-label="5 نجوم">
-                    ★★★★★
-                </div>
-                <blockquote class="testimonial-text">
-                    "{{ trans('pages.products.review1_text') }}"
-                </blockquote>
-                <div class="testimonial-author">
-                    <div class="author-avatar">ن</div>
-                    <div class="author-info">
-                        <strong>{{ trans('pages.products.review1_name') }}</strong>
-                        <span>
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 2.5 2.8.4-2 2 .5 2.8L6 7.4 3.5 8.7 4 5.9 2 3.9l2.8-.4L6 1z" fill="var(--rose)"/></svg>
-                            {{ trans('pages.products.review1_city') }} · {{ trans('pages.products.verified') }}
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card testimonial-card--featured" data-animate="fade-up" data-delay="100">
-                <div class="testimonial-badge">{{ trans('pages.products.top_review') }}</div>
-                <div class="testimonial-stars" aria-label="5 نجوم">★★★★★</div>
-                <blockquote class="testimonial-text">
-                    "{{ trans('pages.products.review2_text') }}"
-                </blockquote>
-                <div class="testimonial-before-after">
-                    <span class="ba-label">{{ trans('pages.products.week') }} 1</span>
-                    <div class="ba-bar">
-                        <div class="ba-fill" style="width: 30%"></div>
-                    </div>
-                    <span class="ba-label">{{ trans('pages.products.week') }} 2</span>
-                    <div class="ba-bar">
-                        <div class="ba-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">ر</div>
-                    <div class="author-info">
-                        <strong>{{ trans('pages.products.review2_name') }}</strong>
-                        <span>
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 2.5 2.8.4-2 2 .5 2.8L6 7.4 3.5 8.7 4 5.9 2 3.9l2.8-.4L6 1z" fill="var(--rose)"/></svg>
-                            {{ trans('pages.products.review2_city') }} · {{ trans('pages.products.verified') }}
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card" data-animate="fade-up" data-delay="200">
-                <div class="testimonial-stars" aria-label="5 نجوم">★★★★★</div>
-                <blockquote class="testimonial-text">
-                    "{{ trans('pages.products.review3_text') }}"
-                </blockquote>
-                <div class="testimonial-author">
-                    <div class="author-avatar">م</div>
-                    <div class="author-info">
-                        <strong>{{ trans('pages.products.review3_name') }}</strong>
-                        <span>
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 2.5 2.8.4-2 2 .5 2.8L6 7.4 3.5 8.7 4 5.9 2 3.9l2.8-.4L6 1z" fill="var(--rose)"/></svg>
-                            {{ trans('pages.products.review3_city') }} · {{ trans('pages.products.verified') }}
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+      <header class="section-head">
+        <span class="eyebrow">{{ trans('home.how.eyebrow') }}</span>
+        <h2 class="section-title">{{ trans('home.how.title') }}</h2>
+      </header>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">01</span>
+          <h3>{{ trans('home.how.s1_t') }}</h3>
+          <p>{{ trans('home.how.s1_d') }}</p>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <h3>{{ trans('home.how.s2_t') }}</h3>
+          <p>{{ trans('home.how.s2_d') }}</p>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <h3>{{ trans('home.how.s3_t') }}</h3>
+          <p>{{ trans('home.how.s3_d') }}</p>
+        </li>
+        <li class="step">
+          <span class="step-num">04</span>
+          <h3>{{ trans('home.how.s4_t') }}</h3>
+          <p>{{ trans('home.how.s4_d') }}</p>
+        </li>
+      </ol>
+      <div class="steps-dots" data-steps-dots></div>
     </div>
-</section>
+  </section>
 
-{# ================================================================
-   CTA SECTION
-================================================================ #}
-<section class="product-cta" id="product-cta" aria-label="اطلبي الآن">
-    <div class="cta-bg-pattern" aria-hidden="true"></div>
+  {# ===== آراء العملاء — آخر قسم ===== #}
+  <section class="reviews">
     <div class="container">
-        <div class="cta-inner" data-animate="fade-up">
-
-            <span class="cta-eyebrow">{{ trans('pages.products.cta_eyebrow') }}</span>
-            <h2 class="cta-title">
-                {{ trans('pages.products.cta_title_line1') }}
-                <em>{{ trans('pages.products.cta_title_accent') }}</em>
-            </h2>
-            <p class="cta-desc">{{ trans('pages.products.cta_desc') }}</p>
-
-            <div class="cta-product-card">
-                <div class="cta-product-image">
-                    <img src="https://cdn.salla.sa/OqVEKa/vDAnghAW8BP9uwl4pu6j7ZsQK4toy2jM6bT0MJBa.jpg" alt="Eloria Brightening Body Serum" loading="lazy" width="160" height="200">
-                </div>
-
-                <div class="cta-product-info">
-                    <h3 class="cta-product-name">Eloria Brightening Body Serum</h3>
-                    <div class="cta-product-details">
-                        <span class="detail-tag">50ml</span>
-                        <span class="detail-tag">Tranexamic Acid · Niacinamide · Alpha Arbutin</span>
-                        <span class="detail-tag">{{ trans('pages.products.dropper') }}</span>
-                    </div>
-
-                    <div class="cta-price-block">
-                        <span class="cta-price">149</span>
-                        <span class="cta-currency">{{ trans('pages.general.sar') }}</span>
-                    </div>
-
-                    <div class="cta-guarantees">
-                        <span>✓ {{ trans('pages.products.free_shipping') }}</span>
-                        <span>✓ {{ trans('pages.products.guarantee_14') }}</span>
-                        <span>✓ {{ trans('pages.products.secure_payment') }}</span>
-                    </div>
-
-                    {% if product %}
-                    <salla-add-product-button
-                        product-id="{{ product.id }}"
-                        product-status="{{ product.status }}"
-                        product-type="{{ product.type }}"
-                        class="btn btn-primary btn-lg btn-full">
-                    </salla-add-product-button>
-                    {% else %}
-                    <a href="/lvNPPDd" class="btn btn-primary btn-lg btn-full">
-                        {{ trans('pages.products.order_now') }}
-                    </a>
-                    {% endif %}
-
-                    <p class="cta-note">{{ trans('pages.products.cta_note') }}</p>
-                </div>
-            </div>
-
+      <div class="reviews-top">
+        <header class="section-head" style="margin-bottom:0;">
+          <span class="eyebrow">{{ trans('home.reviews.eyebrow') }}</span>
+          <h2 class="section-title">{{ trans('home.reviews.title') }}</h2>
+        </header>
+        <div class="reviews-summary">
+          <div class="reviews-score">4.9</div>
+          <div class="reviews-meta">
+            <div class="stars">★★★★★</div>
+            <p>{{ trans('home.reviews.count') }}</p>
+          </div>
         </div>
+      </div>
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-quote">{{ trans('home.reviews.r1_q') }}</p>
+          <div class="review-author"><span class="review-avatar">{{ trans('home.reviews.r1_i') }}</span><div><div class="review-name">{{ trans('home.reviews.r1_n') }}</div><div class="review-verified">{{ trans('home.reviews.verified') }}</div></div></div>
+        </article>
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-quote">{{ trans('home.reviews.r2_q') }}</p>
+          <div class="review-author"><span class="review-avatar">{{ trans('home.reviews.r2_i') }}</span><div><div class="review-name">{{ trans('home.reviews.r2_n') }}</div><div class="review-verified">{{ trans('home.reviews.verified') }}</div></div></div>
+        </article>
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-quote">{{ trans('home.reviews.r3_q') }}</p>
+          <div class="review-author"><span class="review-avatar">{{ trans('home.reviews.r3_i') }}</span><div><div class="review-name">{{ trans('home.reviews.r3_n') }}</div><div class="review-verified">{{ trans('home.reviews.verified') }}</div></div></div>
+        </article>
+      </div>
     </div>
-</section>
+  </section>
 
-{# ================================================================
-   Scroll Animation Init
-================================================================ #}
-<script>
-(function() {
-    const els = document.querySelectorAll('[data-animate]');
-    if (!els.length) return;
+  {# شريط الشراء الثابت — يظهر على الجوال فقط #}
+  {% set bp = store.products.featured|first %}
+  <div class="buybar" data-buybar>
+    <div class="buybar-info">
+      <span class="buybar-name">Brightening Serum · 50ml</span>
+      {% if bp.on_sale %}
+        <span class="buybar-price">{{ bp.sale_price|money }} <span class="buybar-was">{{ bp.regular_price|money }}</span></span>
+      {% else %}
+        <span class="buybar-price">149 {{ trans('common.sar') }}</span>
+      {% endif %}
+    </div>
+    {% if bp.id %}
+      <salla-add-product-button
+        product-id="{{ bp.id }}"
+        product-status="{{ bp.status }}"
+        product-type="{{ bp.type }}"
+        class="btn btn-primary buybar-btn">
+        {{ trans('home.hero.cta_short') }}
+      </salla-add-product-button>
+    {% else %}
+      <a class="btn btn-primary buybar-btn" href="{{ url('products') }}">{{ trans('home.hero.cta_short') }}</a>
+    {% endif %}
+  </div>
 
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                const delay = e.target.dataset.delay || 0;
-                setTimeout(() => {
-                    e.target.classList.add('animated');
-                }, Number(delay));
-                io.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.12 });
+{% endblock %}
 
-    els.forEach(el => io.observe(el));
-})();
-</script>
-
+{% block scripts %}
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/routine-tool.js') }}" defer></script>
 {% endblock %}
