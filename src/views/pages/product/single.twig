@@ -92,6 +92,13 @@
         </div>
         {% hook 'product:single.form.end' %}
 
+        {# مكوّنات سله المطلوبة لصفحة المنتج #}
+        <salla-offer></salla-offer>
+        <salla-installment></salla-installment>
+        <salla-gifting></salla-gifting>
+        <salla-quick-order></salla-quick-order>
+        <salla-metadata></salla-metadata>
+
         <ul class="product-assurance">
           <li>{{ trans('product.shipping') }}</li>
           <li>{{ trans('product.secure') }}</li>

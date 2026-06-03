@@ -27,6 +27,8 @@
       <p>{{ trans('thankyou.tip_body') }}</p>
     </div>
 
+    <salla-next-order-coupon></salla-next-order-coupon>
+
     <div class="thankyou-actions">
       {% if order.id %}<a class="btn btn-primary" href="{{ url('customer.order.single', { id: order.id }) }}">{{ trans('thankyou.track') }}</a>{% endif %}
       <a class="btn btn-ghost" href="{{ store.url }}">{{ trans('thankyou.back') }}</a>

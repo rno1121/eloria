@@ -8,6 +8,8 @@
 {% embed 'components.customer.account-layout' with { active: 'orders', title: trans('account.order') ~ ' #' ~ order.id } %}
   {% block account_content %}
     <salla-order-details order-id="{{ order.id }}"></salla-order-details>
+    <salla-order-totals-card></salla-order-totals-card>
+    <salla-edit-order-button></salla-edit-order-button>
     <div class="order-back">
       <a href="{{ url('customer.orders') }}">← {{ trans('account.orders') }}</a>
     </div>

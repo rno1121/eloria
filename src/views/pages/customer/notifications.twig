@@ -7,6 +7,7 @@
 {% block content %}
 {% embed 'components.customer.account-layout' with { active: 'notifications', title: trans('account.notifications') } %}
   {% block account_content %}
+    <salla-notifications></salla-notifications>
     {% if notifications|length %}
       <ul class="notif-list">
         {% for note in notifications %}

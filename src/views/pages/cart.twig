@@ -16,6 +16,13 @@
     <salla-cart-list></salla-cart-list>
     {% hook 'cart:items.end' %}
 
+    {# مكوّنات سله المطلوبة للسلة #}
+    <salla-cart-item-offers></salla-cart-item-offers>
+    <salla-cart-coupons></salla-cart-coupons>
+    <salla-conditional-offer></salla-conditional-offer>
+    <salla-tiered-offer></salla-tiered-offer>
+    <salla-loyalty-panel></salla-loyalty-panel>
+
     <div class="cart-actions">
       <a class="cart-continue" href="{{ url('products') }}">← {{ trans('cart.continue') }}</a>
     </div>

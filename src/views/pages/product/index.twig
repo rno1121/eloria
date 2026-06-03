@@ -14,6 +14,8 @@
       <p class="listing-count">{{ products.total ?? products|length }} {{ trans('listing.products') }}</p>
     </header>
 
+    <salla-filters></salla-filters>
+
     {% if products|length %}
       <div class="product-cards">
         {% for product in products %}

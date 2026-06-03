@@ -8,6 +8,8 @@
 {% embed 'components.customer.account-layout' with { active: 'profile', title: trans('account.profile') } %}
   {% block account_content %}
     <salla-profile></salla-profile>
+    <salla-user-settings></salla-user-settings>
+    <salla-verify></salla-verify>
   {% endblock %}
 {% endembed %}
 {% endblock %}
