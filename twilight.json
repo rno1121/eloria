@@ -5,6 +5,11 @@
   "support_email": "hello@eloria.store",
   "repo_url": "https://github.com/rno1121/eloria",
   "visibility": "private",
+  "features": [
+    "fonts",
+    "color",
+    "breadcrumb"
+  ],
   "settings": [
     {
       "type": "tab",

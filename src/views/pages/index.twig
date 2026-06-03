@@ -31,10 +31,10 @@
 
       <div class="hero-visual">
         {% set featured = store.products.featured|first %}
-        {% set heroImg = theme.settings.get('hero_image') ?? featured.image.url %}
+        {% set hero_img = theme.settings.get('hero_image') ?? featured.image.url %}
         <div class="hero-product">
-          {% if heroImg %}
-            <img src="{{ heroImg }}" alt="{{ trans('home.hero.title') }}">
+          {% if hero_img %}
+            <img src="{{ hero_img }}" alt="{{ trans('home.hero.title') }}">
           {% else %}
             <div class="placeholder placeholder-bottle" data-label="HERO IMAGE"></div>
           {% endif %}
@@ -131,9 +131,9 @@
     <div class="container final-cta-inner">
       <div class="final-visual">
         {% set fp = store.products.featured|first %}
-        {% set ctaImg = theme.settings.get('cta_image') ?? fp.image.url %}
-        {% if ctaImg %}
-          <img src="{{ ctaImg }}" alt="{{ trans('home.final.title') }}">
+        {% set cta_img = theme.settings.get('cta_image') ?? fp.image.url %}
+        {% if cta_img %}
+          <img src="{{ cta_img }}" alt="{{ trans('home.final.title') }}">
         {% else %}
           <div class="placeholder placeholder-bottle" data-label="CTA IMAGE"></div>
         {% endif %}

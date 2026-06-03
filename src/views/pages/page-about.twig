@@ -22,9 +22,9 @@
   <section class="about-story">
     <div class="container about-story-grid">
       <div class="about-story-media">
-        {% set aboutImg = theme.settings.get('about_image') %}
-        {% if aboutImg %}
-          <img src="{{ aboutImg }}" alt="{{ trans('about.story_title') }}">
+        {% set about_img = theme.settings.get('about_image') %}
+        {% if about_img %}
+          <img src="{{ about_img }}" alt="{{ trans('about.story_title') }}">
         {% else %}
           <div class="placeholder" data-label="BRAND / LAB SHOT"></div>
         {% endif %}
