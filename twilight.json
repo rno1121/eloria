@@ -1,5 +1,8 @@
 {
-  "name": "Eloria",
+  "name": {
+    "ar": "Eloria",
+    "en": "Eloria"
+  },
   "version": "1.0.0",
   "description": "ثيم خاص لمتجر إلوريا — بوستر سيروم التفتيح. هوية أسود وروز جولد فخمة ونظيفة.",
   "support_email": "hello@eloria.store",
