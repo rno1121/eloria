@@ -137,10 +137,10 @@
         <ul class="ingredient-list">
           <li><span class="ing-pct">01</span><div><strong>Tranexamic Acid</strong><em>{{ trans('home.ing.tranexamic') }}</em></div></li>
           <li><span class="ing-pct">02</span><div><strong>Niacinamide</strong><em>{{ trans('home.ing.niacinamide') }}</em></div></li>
-          <li><span class="ing-pct">03</span><div><strong>Alpha Arbutin</strong><em>{{ trans('home.ing.arbutin') }}</em></div></li>
+          <li><span class="ing-pct">03</span><div><strong>Glutathione</strong><em>{{ trans('home.ing.glutathione') }}</em></div></li>
           <li><span class="ing-pct">04</span><div><strong>Panthenol</strong><em>{{ trans('home.ing.panthenol') }}</em></div></li>
-          <li><span class="ing-pct">05</span><div><strong>Hyaluronic Acid</strong><em>{{ trans('home.ing.ha') }}</em></div></li>
-          <li><span class="ing-pct">06</span><div><strong>Glycerin</strong><em>{{ trans('home.ing.glycerin') }}</em></div></li>
+          <li><span class="ing-pct">05</span><div><strong>Glycerin</strong><em>{{ trans('home.ing.glycerin') }}</em></div></li>
+          <li><span class="ing-pct">06</span><div><strong>Propylene Glycol</strong><em>{{ trans('home.ing.propylene') }}</em></div></li>
         </ul>
       </div>
     </div>
@@ -182,6 +182,6 @@
 {% endblock %}
 
 {% block scripts %}
-  <script src="{{ asset('js/app.js') }}" defer></script>
-  <script src="{{ asset('js/product.js') }}" defer></script>
+  <script src="{{ 'app.js' | asset }}" defer></script>
+  <script src="{{ 'product.js' | asset }}" defer></script>
 {% endblock %}

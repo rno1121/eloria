@@ -94,7 +94,7 @@
     "story_eyebrow": "Our story",
     "story_title": "It started from a real need",
     "story_p1": "We noticed most brightening products are either heavy, irritating, or force you to change your whole routine. The result: a shelf full of half-used products.",
-    "story_p2": "So we developed a concentrated formula at studied concentrations — Tranexamic Acid, Niacinamide, and Alpha Arbutin — that blends into any moisturizer and turns it into a gentle even-tone treatment, fragrance-free and alcohol-free.",
+    "story_p2": "So we developed a concentrated formula at studied concentrations — Tranexamic Acid, Niacinamide, and Glutathione — that blends into any moisturizer and turns it into a gentle even-tone treatment, fragrance-free and alcohol-free.",
     "values_eyebrow": "What we believe",
     "values_title": "Three values we won't compromise on",
     "v1_t": "Gentleness first",
@@ -144,12 +144,12 @@
       "eyebrow": "Active formula",
       "title": "Ingredients that work quietly",
       "desc": "A balanced formula at studied concentrations that targets pigmentation and evens tone — gentle on sensitive skin.",
-      "tranexamic": "Reduces pigmentation, evens tone",
+      "tranexamic": "Brightens skin and fades dark spots",
       "niacinamide": "Evens tone, strengthens the barrier",
-      "arbutin": "Reduces melanin production",
-      "panthenol": "Soothes and calms irritation",
-      "ha": "Light hydration and bounce",
-      "glycerin": "Hydration and a smooth blend"
+      "glutathione": "Antioxidant that supports glow and radiance",
+      "panthenol": "Soothes skin and reduces irritation",
+      "glycerin": "Hydrates and keeps skin soft",
+      "propylene": "Boosts absorption of active ingredients"
     },
     "ben": {
       "b1_t": "Gradual evening",
