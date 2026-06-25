@@ -1,130 +1,160 @@
 {
-  "name": {
-    "ar": "Eloria",
-    "en": "Eloria"
-  },
-  "version": "1.0.0",
-  "description": "ثيم خاص لمتجر إلوريا — بوستر سيروم الإشراقة. هوية أسود وروز جولد فخمة ونظيفة.",
-  "support_email": "hello@eloria.store",
-  "repo_url": "https://github.com/rno1121/eloria",
-  "visibility": "private",
-  "features": [
-    "fonts",
-    "color",
-    "breadcrumb"
-  ],
-  "settings": [
-    {
-      "type": "tab",
-      "label": "الهوية البصرية",
-      "fields": [
-        {
-          "id": "primary_color",
-          "type": "color",
-          "label": "اللون الأساسي",
-          "value": "#0D0D0D"
-        },
-        {
-          "id": "accent_color",
-          "type": "color",
-          "label": "لون روز جولد",
-          "value": "#C58D80"
-        },
-        {
-          "id": "background_color",
-          "type": "color",
-          "label": "لون الخلفية",
-          "value": "#FAF8F5"
-        }
-      ]
+    "name": {
+        "ar": "Eloria",
+        "en": "Eloria"
     },
-    {
-      "type": "tab",
-      "label": "صور الصفحة الرئيسية",
-      "fields": [
-        {
-          "id": "hero_image",
-          "type": "image",
-          "label": "صورة البانر الرئيسي (الهيرو)"
-        },
-        {
-          "id": "cta_image",
-          "type": "image",
-          "label": "صورة قسم دعوة الشراء"
-        },
-        {
-          "id": "about_image",
-          "type": "image",
-          "label": "صورة صفحة من نحن"
-        }
-      ]
+    "version": "1.0.0",
+    "description": {
+        "ar": null,
+        "en": null
     },
-    {
-      "type": "tab",
-      "label": "محتوى عام",
-      "fields": [
+    "support_email": "hello@eloria.store",
+    "repo_url": "https://github.com/rno1121/eloria",
+    "visibility": "private",
+    "features": [
+        "fonts",
+        "color",
+        "breadcrumb"
+    ],
+    "settings": [
         {
-          "id": "announce_text",
-          "type": "string",
-          "label": "نص الشريط العلوي",
-          "value": "شحن مجاني للطلبات فوق 200 ريال · توصيل سريع داخل المملكة"
-        }
-      ]
-    },
-    {
-      "type": "tab",
-      "label": "آراء العملاء",
-      "fields": [
-        {
-          "id": "reviews_enabled",
-          "type": "boolean",
-          "label": "إظهار قسم آراء العملاء في الرئيسية",
-          "value": true
+            "type": "tab",
+            "label": "الهوية البصرية",
+            "fields": [
+                {
+                    "id": "primary_color",
+                    "type": "color",
+                    "label": "اللون الأساسي",
+                    "value": "#0D0D0D"
+                },
+                {
+                    "id": "accent_color",
+                    "type": "color",
+                    "label": "لون روز جولد",
+                    "value": "#C58D80"
+                },
+                {
+                    "id": "background_color",
+                    "type": "color",
+                    "label": "لون الخلفية",
+                    "value": "#FAF8F5"
+                }
+            ]
         },
         {
-          "id": "reviews_score",
-          "type": "string",
-          "label": "التقييم العام (مثال: 4.9)",
-          "value": "4.9"
+            "type": "tab",
+            "label": "صور الصفحة الرئيسية",
+            "fields": [
+                {
+                    "id": "hero_image",
+                    "type": "image",
+                    "label": "صورة البانر الرئيسي (الهيرو)"
+                },
+                {
+                    "id": "cta_image",
+                    "type": "image",
+                    "label": "صورة قسم دعوة الشراء"
+                },
+                {
+                    "id": "about_image",
+                    "type": "image",
+                    "label": "صورة صفحة من نحن"
+                }
+            ]
         },
         {
-          "id": "reviews_count",
-          "type": "string",
-          "label": "نص عدد التقييمات",
-          "value": "من ٢١٤ تقييم موثّق"
+            "type": "tab",
+            "label": "محتوى عام",
+            "fields": [
+                {
+                    "id": "announce_text",
+                    "type": "string",
+                    "label": "نص الشريط العلوي",
+                    "value": "شحن مجاني للطلبات فوق 200 ريال · توصيل سريع داخل المملكة"
+                }
+            ]
         },
         {
-          "id": "reviews_items",
-          "type": "items",
-          "label": "التقييمات",
-          "value": [
-            { "name": "نورة الشمري", "initial": "ن", "quote": "أحلى شي إني ما غيرت كريمي بس صارت بشرتي أفتح ولاحظت فرق في الركب بعد ثلاث أسابيع" },
-            { "name": "ريم العتيبي", "initial": "ر", "quote": "خفيف وما له ريحة وما هيّج بشرتي أبداً القطرات تكفي مدة طويلة" },
-            { "name": "سارة القحطاني", "initial": "س", "quote": "مره حبيت فكرته وصلني امس اهم شيء انه بدون كورتيزن بستخدمه هالشهر والله ينفع فيه" }
-          ],
-          "fields": [
-            { "id": "name", "type": "string", "label": "اسم العميلة" },
-            { "id": "initial", "type": "string", "label": "حرف الاسم (للأيقونة)" },
-            { "id": "quote", "type": "text", "label": "نص التقييم" }
-          ]
+            "type": "tab",
+            "label": "آراء العملاء",
+            "fields": [
+                {
+                    "id": "reviews_enabled",
+                    "type": "boolean",
+                    "label": "إظهار قسم آراء العملاء في الرئيسية",
+                    "value": true
+                },
+                {
+                    "id": "reviews_score",
+                    "type": "string",
+                    "label": "التقييم العام (مثال: 4.9)",
+                    "value": "4.9"
+                },
+                {
+                    "id": "reviews_count",
+                    "type": "string",
+                    "label": "نص عدد التقييمات",
+                    "value": "من ٢١٤ تقييم موثّق"
+                },
+                {
+                    "id": "reviews_items",
+                    "type": "items",
+                    "label": "التقييمات",
+                    "value": [
+                        {
+                            "name": "نورة الشمري",
+                            "initial": "ن",
+                            "quote": "أحلى شي إني ما غيرت كريمي بس صارت بشرتي أفتح ولاحظت فرق في الركب بعد ثلاث أسابيع"
+                        },
+                        {
+                            "name": "ريم العتيبي",
+                            "initial": "ر",
+                            "quote": "خفيف وما له ريحة وما هيّج بشرتي أبداً القطرات تكفي مدة طويلة"
+                        },
+                        {
+                            "name": "سارة القحطاني",
+                            "initial": "س",
+                            "quote": "مره حبيت فكرته وصلني امس اهم شيء انه بدون كورتيزن بستخدمه هالشهر والله ينفع فيه"
+                        }
+                    ],
+                    "fields": [
+                        {
+                            "id": "name",
+                            "type": "string",
+                            "label": "اسم العميلة"
+                        },
+                        {
+                            "id": "initial",
+                            "type": "string",
+                            "label": "حرف الاسم (للأيقونة)"
+                        },
+                        {
+                            "id": "quote",
+                            "type": "text",
+                            "label": "نص التقييم"
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "components": [
-    {
-      "name": "skin-routine-tool",
-      "title": "أداة جدول العناية",
-      "icon": "sicon-image-carousel",
-      "path": "home.skin-routine-tool",
-      "fields": [
+    ],
+    "components": [
         {
-          "id": "title",
-          "type": "string",
-          "label": "عنوان الأداة",
-          "value": "اكتشفي روتينكِ المخصّص"
+            "name": "skin-routine-tool",
+            "title": "أداة جدول العناية",
+            "icon": "sicon-image-carousel",
+            "path": "home.skin-routine-tool",
+            "fields": [
+                {
+                    "id": "title",
+                    "type": "string",
+                    "label": "عنوان الأداة",
+                    "value": "اكتشفي روتينكِ المخصّص"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ],
+    "author_email": "raneeem1434@gmail.com",
+    "support_url": "https://salla.sa/eloriapure",
+    "repository": "https://github.com/rno1121/eloria"
 }
