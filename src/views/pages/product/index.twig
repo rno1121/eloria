@@ -14,6 +14,7 @@
       <p class="listing-count">{{ products.total ?? products|length }} {{ trans('listing.products') }}</p>
     </header>
 
+    {% hook 'product.index.before_products_group_with_filter' %}
     <salla-filters></salla-filters>
 
     {% if products|length %}
@@ -68,6 +69,9 @@
         <a class="btn btn-primary" href="{{ store.url }}">{{ trans('nav.home') }}</a>
       </div>
     {% endif %}
+
+    {% hook 'product.index.after_products_group_with_filter' %}
+    {% hook 'product.index.after_testimonials' %}
 
   </div>
 </section>

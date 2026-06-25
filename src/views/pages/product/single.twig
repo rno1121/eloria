@@ -17,6 +17,7 @@
       <strong>{{ product.name }}</strong>
     </nav>
 
+    {% hook 'product.single.before_product_info' %}
     <div class="product-grid">
 
       {# ===== المعرض ===== #}
@@ -154,6 +155,7 @@
     {% endif %}
 
     {# ===== التقييمات ===== #}
+    {% hook 'product.single.before_customer_reviews' %}
     <div class="product-section" id="reviews">
       <header class="section-head section-head-center">
         <span class="eyebrow">{{ trans('home.reviews.eyebrow') }}</span>
@@ -161,6 +163,9 @@
       </header>
       <salla-comments comment-type="reviews" data-id="{{ product.id }}"></salla-comments>
     </div>
+
+    {% hook 'product.single.before_product_recommendations' %}
+    {% hook 'product.single.after_product_recommendations' %}
 
   </div>
 </section>

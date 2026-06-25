@@ -18,7 +18,7 @@
     "account": "Account"
   },
   "footer": {
-    "tagline": "A concentrated booster serum that adds brightening and even-tone power to the cream you already love.",
+    "tagline": "A concentrated booster serum that adds radiance and even-tone-look power to the cream you already love.",
     "shop": "Shop",
     "ingredients": "Ingredients",
     "help": "Help",
@@ -31,7 +31,7 @@
     "sale": "Sale",
     "reviews_count": "reviews",
     "save": "Save",
-    "short": "A concentrated booster serum you add to your usual cream to give it brightening and even-tone power — in just a few drops.",
+    "short": "A concentrated booster serum you add to your usual cream to give it radiance and even-tone-look power — in just a few drops.",
     "shipping": "Free shipping over 200 SAR",
     "secure": "Secure checkout via Salla",
     "made": "Crafted with care in Saudi Arabia",
@@ -78,7 +78,7 @@
   "blog": {
     "eyebrow": "Journal",
     "title": "The Eloria Journal",
-    "lead": "Tips and articles on skincare and evening out body tone.",
+    "lead": "Tips and articles on skincare and evening the look of body tone.",
     "read_more": "Read more",
     "empty": "No articles yet."
   },
@@ -90,17 +90,17 @@
   "about": {
     "eyebrow": "About us",
     "headline": "Skincare shouldn't mean <em>starting over</em>",
-    "intro": "Eloria was born from a simple idea: why ask a woman to give up the cream she loves just to brighten her skin? We made a booster serum that adds the power — it doesn't replace it.",
+    "intro": "Eloria was born from a simple idea: why ask a woman to give up the cream she loves just to improve the look of her skin? We made a booster serum that adds the power — it doesn't replace it.",
     "story_eyebrow": "Our story",
     "story_title": "It started from a real need",
-    "story_p1": "We noticed most brightening products are either heavy, irritating, or force you to change your whole routine. The result: a shelf full of half-used products.",
-    "story_p2": "So we developed a concentrated formula at studied concentrations — Tranexamic Acid, Niacinamide, and Glutathione — that blends into any moisturizer and turns it into a gentle even-tone treatment, fragrance-free and alcohol-free.",
+    "story_p1": "We noticed most radiance products are either heavy, irritating, or force you to change your whole routine. The result: a shelf full of half-used products.",
+    "story_p2": "So we developed a concentrated formula at studied concentrations — Tranexamic Acid, Niacinamide, and Glutathione — that blends into any moisturizer and turns it into a gentle even-tone serum, fragrance-free and alcohol-free.",
     "values_eyebrow": "What we believe",
     "values_title": "Three values we won't compromise on",
     "v1_t": "Gentleness first",
     "v1_d": "A formula safe for sensitive skin, free of fragrance and alcohol, with a balanced pH of 5–6.",
     "v2_t": "Proven efficacy",
-    "v2_d": "Active ingredients at real concentrations that target pigmentation and even tone gradually.",
+    "v2_d": "Active ingredients at real concentrations that improve the look of pigmentation and even the look of tone gradually.",
     "v3_t": "Full transparency",
     "v3_d": "We show you every ingredient and its percentage clearly. No overblown promises — just science and honesty.",
     "quote": "We believe the most beautiful skin is <em>healthy, even skin</em> — not perfect skin.",
@@ -109,9 +109,9 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Brightening Body Serum · 50ml",
+      "eyebrow": "Radiance Body Serum · 50ml",
       "title": "Add the glow to your cream",
-      "sub": "A concentrated booster serum that turns your everyday moisturizer into a brightening, even-tone treatment — in just a few drops.",
+      "sub": "A concentrated booster serum that turns your everyday moisturizer into a radiance-boosting, even-tone serum — in just a few drops.",
       "cta": "Add to cart · 149 SAR",
       "cta_short": "Add to cart",
       "cta_shop": "Shop now",
@@ -126,7 +126,7 @@
     },
     "concept": {
       "headline": "Don't change your cream… <em>add the power it's missing</em>",
-      "sub": "Two to five drops is all it takes to turn any moisturizer into a complete brightening routine."
+      "sub": "Two to five drops is all it takes to turn any moisturizer into a complete radiance routine."
     },
     "how": {
       "eyebrow": "Four simple steps",
@@ -143,9 +143,9 @@
     "ing": {
       "eyebrow": "Active formula",
       "title": "Ingredients that work quietly",
-      "desc": "A balanced formula at studied concentrations that targets pigmentation and evens tone — gentle on sensitive skin.",
-      "tranexamic": "Brightens skin and fades dark spots",
-      "niacinamide": "Evens tone, strengthens the barrier",
+      "desc": "A balanced formula at studied concentrations that improves the look of pigmentation and evens the look of tone — gentle on sensitive skin.",
+      "tranexamic": "Improves the look of skin and dark areas",
+      "niacinamide": "Evens the look of tone, strengthens the barrier",
       "glutathione": "Antioxidant that supports glow and radiance",
       "panthenol": "Soothes skin and reduces irritation",
       "glycerin": "Hydrates and keeps skin soft",
@@ -153,9 +153,9 @@
     },
     "ben": {
       "b1_t": "Gradual evening",
-      "b1_d": "Evens body tone step by step, without harshness.",
-      "b2_t": "Less pigmentation",
-      "b2_d": "Softens tan marks and dark knees & elbows.",
+      "b1_d": "Evens the look of body tone step by step, without harshness.",
+      "b2_t": "Improved look of pigmentation",
+      "b2_d": "Improves the look of tan marks and dark knees & elbows.",
       "b3_t": "Glow & radiance",
       "b3_d": "Gives skin a healthy, renewed luminosity.",
       "b4_t": "Gentle & daily",
@@ -166,7 +166,7 @@
       "title": "What our customers said",
       "count": "From 214 verified reviews",
       "verified": "✓ Verified buyer",
-      "r1_q": "The best part is I didn't change my cream — it just brightens now. I noticed a difference on my knees after three weeks.",
+      "r1_q": "The best part is I didn't change my cream — my skin just looks more radiant now. I noticed a difference in the look of my knees after three weeks.",
       "r1_n": "Noura Al-Shammari",
       "r1_i": "N",
       "r2_q": "Light, fragrance-free, and never irritated my skin. The drops last a long time.",
@@ -189,7 +189,7 @@
       "c_knees": "Dark knees & elbows",
       "c_spots": "Spots & pigmentation",
       "c_dull": "Dullness",
-      "c_even": "Overall even tone",
+      "c_even": "Overall even-looking tone",
       "q3": "When do you prefer to use it?",
       "t_am": "Morning",
       "t_pm": "Evening",
@@ -210,8 +210,8 @@
       "back": "Back"
     },
     "final": {
-      "title": "Ready to even your tone?",
-      "desc": "A few drops added to your favorite cream each day — for visibly brighter, more even skin over time."
+      "title": "Ready to even the look of your tone?",
+      "desc": "A few drops added to your favorite cream each day — for a visibly more radiant, more even-looking complexion over time."
     }
   }
 }

@@ -43,8 +43,8 @@ importers:
         specifier: ^2.14.446
         version: 2.14.446(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)
       '@salla.sa/twilight-tailwind-theme':
-        specifier: ^2.14.457
-        version: 2.14.457
+        specifier: ^2.14.471
+        version: 2.14.473
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19)
@@ -1000,8 +1000,8 @@ packages:
   '@salla.sa/twilight-tailwind-theme@2.14.446':
     resolution: {integrity: sha512-cmfEWDwgBmTVc03bitPAflbrie2mH7/TeUXid9E8fcPNQjtRjUXOPlAanffxHeZkNT9yM7x2xSEoJLYSEzCktw==}
 
-  '@salla.sa/twilight-tailwind-theme@2.14.457':
-    resolution: {integrity: sha512-7icbFVSUeJBdGEj+Jcg+43Cct9ekCVOeTbW76WHrViAvHNgjMBropsAN6n9kmaTl+BRtxp029U2lUja+CQc0Pw==}
+  '@salla.sa/twilight-tailwind-theme@2.14.473':
+    resolution: {integrity: sha512-lCl5Sb8g63VX19O+aSspljC2F+XFIxZgNJQTh6IyH4VQDQ+if1muDc1upHrA2uwIW8g3S+UzIrjwik//VBcYUw==}
 
   '@salla.sa/twilight@2.14.446':
     resolution: {integrity: sha512-tc1f3kjqeLamusBPV9W+aFxJkQ2ASoqmXausDUB9kbQpI3uXYOkX+2NeL91+OJUqGXig0DISZ+/psZSNDKoO3w==}
@@ -4068,7 +4068,7 @@ snapshots:
 
   '@salla.sa/twilight-tailwind-theme@2.14.446': {}
 
-  '@salla.sa/twilight-tailwind-theme@2.14.457': {}
+  '@salla.sa/twilight-tailwind-theme@2.14.473': {}
 
   '@salla.sa/twilight@2.14.446(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)':
     dependencies:

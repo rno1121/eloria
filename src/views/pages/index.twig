@@ -200,7 +200,8 @@
     </div>
   </section>
 
-  {# ===== آراء العملاء — آخر قسم ===== #}
+  {# ===== آراء العملاء — آخر قسم (متحكَّم من إعدادات الثيم) ===== #}
+  {% if theme.settings.get('reviews_enabled') ?? true %}
   <section class="reviews">
     <div class="container">
       <div class="reviews-top">
@@ -209,38 +210,31 @@
           <h2 class="section-title">{{ trans('home.reviews.title') }}</h2>
         </header>
         <div class="reviews-summary">
-          <div class="reviews-score">4.9</div>
+          <div class="reviews-score">{{ theme.settings.get('reviews_score') ?: '4.9' }}</div>
           <div class="reviews-meta">
             <div class="stars">★★★★★</div>
-            <p>{{ trans('home.reviews.count') }}</p>
+            <p>{{ theme.settings.get('reviews_count') ?: trans('home.reviews.count') }}</p>
           </div>
         </div>
       </div>
       <div class="reviews-grid">
+        {% set reviews = theme.settings.get('reviews_items') %}
+        {% for r in reviews %}
         <article class="review-card">
           <div class="stars">★★★★★</div>
-          <p class="review-quote">{{ trans('home.reviews.r1_q') }}</p>
-          <div class="review-author"><span class="review-avatar">{{ trans('home.reviews.r1_i') }}</span><div><div class="review-name">{{ trans('home.reviews.r1_n') }}</div><div class="review-verified">{{ trans('home.reviews.verified') }}</div></div></div>
+          <p class="review-quote">{{ r.quote }}</p>
+          <div class="review-author"><span class="review-avatar">{{ r.initial }}</span><div><div class="review-name">{{ r.name }}</div><div class="review-verified">{{ trans('home.reviews.verified') }}</div></div></div>
         </article>
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-quote">{{ trans('home.reviews.r2_q') }}</p>
-          <div class="review-author"><span class="review-avatar">{{ trans('home.reviews.r2_i') }}</span><div><div class="review-name">{{ trans('home.reviews.r2_n') }}</div><div class="review-verified">{{ trans('home.reviews.verified') }}</div></div></div>
-        </article>
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-quote">{{ trans('home.reviews.r3_q') }}</p>
-          <div class="review-author"><span class="review-avatar">{{ trans('home.reviews.r3_i') }}</span><div><div class="review-name">{{ trans('home.reviews.r3_n') }}</div><div class="review-verified">{{ trans('home.reviews.verified') }}</div></div></div>
-        </article>
+        {% endfor %}
       </div>
     </div>
   </section>
-
+  {% endif %}
   {# شريط الشراء الثابت — يظهر على الجوال فقط #}
   {% set bp = store.products.featured|first %}
   <div class="buybar" data-buybar>
     <div class="buybar-info">
-      <span class="buybar-name">Brightening Serum · 50ml</span>
+      <span class="buybar-name">Radiance Serum · 50ml</span>
       {% if bp.on_sale %}
         <span class="buybar-price">{{ bp.sale_price|money }} <span class="buybar-was">{{ bp.regular_price|money }}</span></span>
       {% else %}

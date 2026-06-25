@@ -4,7 +4,7 @@
     "en": "Eloria"
   },
   "version": "1.0.0",
-  "description": "ثيم خاص لمتجر إلوريا — بوستر سيروم التفتيح. هوية أسود وروز جولد فخمة ونظيفة.",
+  "description": "ثيم خاص لمتجر إلوريا — بوستر سيروم الإشراقة. هوية أسود وروز جولد فخمة ونظيفة.",
   "support_email": "hello@eloria.store",
   "repo_url": "https://github.com/rno1121/eloria",
   "visibility": "private",
@@ -68,6 +68,45 @@
           "type": "string",
           "label": "نص الشريط العلوي",
           "value": "شحن مجاني للطلبات فوق 200 ريال · توصيل سريع داخل المملكة"
+        }
+      ]
+    },
+    {
+      "type": "tab",
+      "label": "آراء العملاء",
+      "fields": [
+        {
+          "id": "reviews_enabled",
+          "type": "boolean",
+          "label": "إظهار قسم آراء العملاء في الرئيسية",
+          "value": true
+        },
+        {
+          "id": "reviews_score",
+          "type": "string",
+          "label": "التقييم العام (مثال: 4.9)",
+          "value": "4.9"
+        },
+        {
+          "id": "reviews_count",
+          "type": "string",
+          "label": "نص عدد التقييمات",
+          "value": "من ٢١٤ تقييم موثّق"
+        },
+        {
+          "id": "reviews_items",
+          "type": "items",
+          "label": "التقييمات",
+          "value": [
+            { "name": "نورة الشمري", "initial": "ن", "quote": "أحلى شي إني ما غيرت كريمي بس صارت بشرتي أفتح ولاحظت فرق في الركب بعد ثلاث أسابيع" },
+            { "name": "ريم العتيبي", "initial": "ر", "quote": "خفيف وما له ريحة وما هيّج بشرتي أبداً القطرات تكفي مدة طويلة" },
+            { "name": "سارة القحطاني", "initial": "س", "quote": "مره حبيت فكرته وصلني امس اهم شيء انه بدون كورتيزن بستخدمه هالشهر والله ينفع فيه" }
+          ],
+          "fields": [
+            { "id": "name", "type": "string", "label": "اسم العميلة" },
+            { "id": "initial", "type": "string", "label": "حرف الاسم (للأيقونة)" },
+            { "id": "quote", "type": "text", "label": "نص التقييم" }
+          ]
         }
       ]
     }
